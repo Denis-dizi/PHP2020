@@ -139,13 +139,6 @@ echo "</br>";
 </head>
 
 <body>
-    <form method="POST">
-        <input name="input_one">
-        <input name="input_two">
-
-        <button type="submit">save</button>
-
-    </form>
 
 </body>
 
