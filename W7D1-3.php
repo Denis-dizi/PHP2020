@@ -14,19 +14,19 @@ $dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 // (1:44:) get data from database (query).
 $sql = "SELECT * FROM users";
-$response = $dbConnection->query($sql);
-var_dump($response);
+// $response = $dbConnection->query($sql);
+// var_dump($response);
+
+// (1:48:)
+// var_dump($response->fetch_all());
+
+// (1:49:)(1:55:)
+$response = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 
 
-
-// var_dump($response->fet);
-
-// $response = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
 // $sql1 = "SELECT * FROM products";
 // $response1 = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
-
-
 
 
 // if (isset($_POST["email"]) && isset($_POST["password"])) {
@@ -65,8 +65,8 @@ var_dump($response);
 
 <body>
     <form method="POST">
-        <input name="input_one">
-        <input name="input_two">
+        <input name="email">
+        <input name="password">
 
         <!-- <input name="email" value="<?php echo $email ?>">
         <input name="password"> -->
@@ -75,17 +75,17 @@ var_dump($response);
 
     </form>
 
-    <!-- <table>
+    <!-- (1:49:) -->
+    <table>
         <tbody>
             <?php foreach ($response as $user) { ?>
                 <tr>
                     <td><?php echo $user['email'] ?></td>
                     <td><?php echo $user['password'] ?></td>
-
                 </tr>
             <?php } ?>
         </tbody>
-    </table> -->
+    </table>
 
 </body>
 
