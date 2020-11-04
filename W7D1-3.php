@@ -9,8 +9,24 @@ $dbpass = ""; //root
 $dbname = "shop-i";
 $dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
-var_dump($dbConnection);
+// (1:42:) connect to database
+// var_dump($dbConnection);
+
+// (1:44:) get data from database (query).
+$sql = "SELECT * FROM users";
+$response = $dbConnection->query($sql);
+var_dump($response);
+
+
+
+
 // var_dump($response->fet);
+
+// $response = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
+// $sql1 = "SELECT * FROM products";
+// $response1 = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
+
+
 
 
 // if (isset($_POST["email"]) && isset($_POST["password"])) {
@@ -35,11 +51,6 @@ var_dump($dbConnection);
 
 // }
 
-// $sql = "SELECT * FROM users";
-// $response = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
-
-// $sql1 = "SELECT * FROM products";
-// $response1 = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 ?>
 
