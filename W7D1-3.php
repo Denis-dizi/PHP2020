@@ -1,69 +1,64 @@
-<!-- W7D1-2 -->
-
 <?php
-    // var_dump($_POST);
-    // // $sql = "INSERT INTO Users (email, password) VALUES (" . $_POST["email"]");
-    // $name = $_POST["email"];
-    // $password = $_POST["password"];
-    
-    // echo $sql;
+// W7D1
+// (1:37:)
+// Practise: file will comunicate with data base, will write into data base and tables
 
+$dbhost = "localhost:3306";
+$dbuser = "root";
+$dbpass = ""; //root
+$dbname = "web-bootcamp";
+$dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
-    $dbhost = "localhost:3306";
-    $dbuser = "root";
-    $dbpass = ""; //root
-    $dbname = "web-bootcamp";
-    $dbConnection = new mysqli ($dbhost, $dbuser, $dbpass, $dbname);
+if (isset($_POST["email"]) && isset($_POST["password"])) {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-    if (isset ($_POST["email"]) && isset ($_POST["password"])) {
-        $email = $_POST["email"];
-        $password = $_POST["password"];
+    $sql = "INSERT INTO users VALUES ('$email', '$password')";
+    $response = $dbConnection->query($sql);
+    var_dump($response);
+    var_dump($dbConnection);
+}
 
-        $sql = "INSERT INTO users VALUES ('$email', '$password')";
-        $response = $dbConnection->query($sql);
-        var_dump($response);
-        var_dump($dbConnection);
+$email = '';
+$password = '';
+if (isset($_GET["email"])) {
+    $email = $_GET["email"];
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $user = $dbConnection->query($sql)->fetch_assoc();
+    $email = $user["email"];
+    $password = $user["password"];
+    // var_dump($user);
 
-    }
+}
 
-    $email = '';
-    $password = '';
-    if (isset($_GET["email"])){
-        $email = $_GET["email"];
-        $sql = "SELECT * FROM users WHERE email = '$email'";
-        $user = $dbConnection->query($sql)->fetch_assoc();
-        $email = $user["email"];
-        $password = $user["password"];
-        // var_dump($user);
+$sql = "SELECT * FROM users";
+$response = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
 
-    }
+$sql1 = "SELECT * FROM products";
+$response1 = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
 
-    $sql = "SELECT * FROM users";
-    $response = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
-    
-    $sql1 = "SELECT * FROM products";
-    $response1 = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
+// var_dump($dbConnection);
+// var_dump($response->fet);
 
-    // var_dump($dbConnection);
-    // var_dump($response->fet);
+// var_dump($GET);
+// $userID = $_GET["user_id"];
+// $sql = 
 
-    // var_dump($GET);
-    // $userID = $_GET["user_id"];
-    // $sql = 
-
-    // if (true) {
-    //     }else{
-    // }
+// if (true) {
+//     }else{
+// }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <form method="POST">
         <!-- <input name="input_one"> -->
@@ -77,15 +72,16 @@
 
     <table>
         <tbody>
-            <?php foreach($response as $user) { ?>
+            <?php foreach ($response as $user) { ?>
                 <tr>
-                    <td><?php echo $user ['email'] ?></td>
-                    <td><?php echo $user ['password'] ?></td>
-                    
+                    <td><?php echo $user['email'] ?></td>
+                    <td><?php echo $user['password'] ?></td>
+
                 </tr>
             <?php } ?>
         </tbody>
     </table>
-    
+
 </body>
+
 </html>
