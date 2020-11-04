@@ -9,6 +9,20 @@ $dbpass = ""; //root
 $dbname = "shop-i";
 $dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
+// (2:11:)
+// save data only when data is available:
+var_dump($_POST);
+if (isset($_POST["email"]) && isset($_POST["password"])) {
+    // (2:16:)
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    $sql = "INSERT INTO users VALUES ('$email', '$password')";
+    $response = $dbConnection->query($sql);
+    var_dump($response);
+    // var_dump($dbConnection);
+}
+
 // (1:42:) connect to database
 // var_dump($dbConnection);
 
@@ -23,21 +37,10 @@ $sql = "SELECT * FROM users";
 // (1:49:)(1:55:)
 $response = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
 
-
-
+// (1:59:)
 // $sql1 = "SELECT * FROM products";
-// $response1 = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
+// $response1 = $dbConnection->query($sql1)->fetch_all(MYSQLI_ASSOC);
 
-
-// if (isset($_POST["email"]) && isset($_POST["password"])) {
-//     $email = $_POST["email"];
-//     $password = $_POST["password"];
-
-//     $sql = "INSERT INTO users VALUES ('$email', '$password')";
-//     $response = $dbConnection->query($sql);
-//     var_dump($response);
-//     var_dump($dbConnection);
-// }
 
 // $email = '';
 // $password = '';
