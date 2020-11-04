@@ -23,6 +23,25 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     // var_dump($dbConnection);
 }
 
+// (2:42:)
+$email = '';
+$password = '';
+
+// (2:32:)
+if (isset($_GET["email"])) {
+    $email = $_GET["email"];
+    // $password = $_GET["password"];
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+
+    // var_dump($dbConnection->query($sql));
+
+    $user = $dbConnection->query($sql)->fetch_assoc();
+    $email = $user["email"];
+    // (2:52:)
+    $password = $user["password"];
+    // var_dump($user);
+}
+
 // (1:42:) connect to database
 // var_dump($dbConnection);
 
@@ -42,19 +61,6 @@ $response = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
 // $response1 = $dbConnection->query($sql1)->fetch_all(MYSQLI_ASSOC);
 
 
-// $email = '';
-// $password = '';
-// if (isset($_GET["email"])) {
-//     $email = $_GET["email"];
-//     $sql = "SELECT * FROM users WHERE email = '$email'";
-//     $user = $dbConnection->query($sql)->fetch_assoc();
-//     $email = $user["email"];
-//     $password = $user["password"];
-//     // var_dump($user);
-
-// }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -68,11 +74,12 @@ $response = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 <body>
     <form method="POST">
-        <input name="email">
-        <input name="password">
-
-        <!-- <input name="email" value="<?php echo $email ?>">
+        <!-- <input name="email">
         <input name="password"> -->
+
+        <!-- (2:46:) -->
+        <input name="email" value="<?php echo $email ?>">
+        <input name="password" value="<?= $password ?>">
 
         <button type="submit">save</button>
 
