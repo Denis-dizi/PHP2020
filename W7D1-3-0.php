@@ -8,13 +8,26 @@
 
 
 // (1:27:) refactor. Not a best practise. Do not mix variables with text.
-var_dump($_POST);
-$email = $_POST["email"];
-$password = $_POST["password"];
-$sql = "INSERT INTO Users (email, password) 
-VALUES ($email,$password)";
-echo $sql;
+// var_dump($_POST);
+// $email = $_POST["email"];
+// $password = $_POST["password"];
+// $sql = "INSERT INTO Users (email, password) 
+// VALUES ($email,$password)";
+// echo $sql;
 
+//(1:30:) Get is going from browser. Post - from form
+//examples (put after file adress in browsers adressbar): 
+// ?user_id=10 // ?user_id=20&lang=eng
+var_dump($_GET);
+
+//(1:34:)
+// var_dump($_SESSION);
+// var_dump($_SERVER);
+// var_dump($_COOKIE);
+
+//(1:33:)
+$userID = $_GET["user_id"];
+$sql = "SELECT * FROM Users WHERE email = $userID";
 
 ?>
 
