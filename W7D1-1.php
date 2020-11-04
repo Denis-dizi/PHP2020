@@ -135,7 +135,7 @@ echo "</br>";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>W7D1-1. PHP intro</title>
 </head>
 
 <body>
