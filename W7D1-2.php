@@ -13,10 +13,11 @@ var_dump($_POST);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>W7D1-2. Post</title>
 </head>
 
 <body>
+    <h2>Clear POST method</h2>
     <form method="POST">
         <input name="input_one">
         <input name="input_two">
