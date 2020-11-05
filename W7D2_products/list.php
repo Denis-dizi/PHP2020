@@ -56,7 +56,7 @@ $products = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
             <?php } ?>
         </tbody>
     </table>
-
+<!-- (1:55:) -->
     <a href="/PHP2020_RCS/W7D2_products/modify.php">Add product</a>
 
 </body>
@@ -65,7 +65,7 @@ $products = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 <script>
     // error responce
-    // (2:37:)
+    // (2:27:) ajax request:
     $.ajax({
         url: "/PHP2020_RCS/W7D2_products/api.php?table=products"
     }).done(function(response) {
