@@ -14,11 +14,11 @@ $dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 // (1:44:) get data from database (query).
 $sql = "SELECT * FROM users";
-// $response = $dbConnection->query($sql);
-// var_dump($response);
+// $response0 = $dbConnection->query($sql);
+// var_dump($response0);
 
 // (1:48:)
-// var_dump($response->fetch_all());
+// var_dump($response0->fetch_all());
 
 // (1:49:)(1:55:)
 $response = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
@@ -35,7 +35,7 @@ $response1 = $dbConnection->query($sql1)->fetch_all(MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W7D1-3. Form</title>
+    <title>W7D1-3. Products</title>
 </head>
 
 <body>
@@ -53,10 +53,12 @@ $response1 = $dbConnection->query($sql1)->fetch_all(MYSQLI_ASSOC);
     <!-- (1:49:) -->
     <table>
         <tbody>
-            <?php foreach ($response1 as $user) { ?>
+            <h3>Get response by products. <br>
+            (1:58:) queary for products</h3>
+            <?php foreach ($response1 as $product) { ?>
                 <tr>
-                    <td><?php echo $user['email'] ?></td>
-                    <td><?php echo $user['password'] ?></td>
+                    <td><?php echo $product['name'] ?></td>
+                    <td><?php echo $product['price'] ?></td>
                 </tr>
             <?php } ?>
         </tbody>
