@@ -22,9 +22,10 @@ if ($_GET["table"]) {
     if ($sqlResponse) {
         $response = $sqlResponse->fetch_all(MYSQLI_ASSOC);
     } else {
-        $response = ["error" => "missing table " . $_GET["table"]];
+        $response = ["error" => "missing table: " . $_GET["table"]];
     }
 
     echo json_encode($response);
-    //type: http://localhost/PHP2020%20-%20RCS/products/api.php?table=products
+    //type: .../api.php?table=products - to get data array
+    //type: .../api.php?table=product1 - to get error message
 }
