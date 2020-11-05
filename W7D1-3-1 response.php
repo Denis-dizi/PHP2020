@@ -35,7 +35,7 @@ $response1 = $dbConnection->query($sql1)->fetch_all(MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W7D1-3. Products</title>
+    <title>W7D1-3-1. Responses</title>
 </head>
 
 <body>
@@ -53,8 +53,21 @@ $response1 = $dbConnection->query($sql1)->fetch_all(MYSQLI_ASSOC);
     <!-- (1:49:) -->
     <table>
         <tbody>
-            <h3>Get response by products. <br>
-            (1:58:) queary for products</h3>
+            <h3>Get response by users.</h3>
+            <p>(1:55:) queary for users</p>
+            <?php foreach ($response as $user) { ?>
+                <tr>
+                    <td><?php echo $user['email'] ?></td>
+                    <td><?php echo $user['password'] ?></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+    
+    <table>
+        <tbody>
+            <h3>Get response by products.</h3>
+            <p>(1:58:) queary for products</p>
             <?php foreach ($response1 as $product) { ?>
                 <tr>
                     <td><?php echo $product['name'] ?></td>
@@ -63,7 +76,6 @@ $response1 = $dbConnection->query($sql1)->fetch_all(MYSQLI_ASSOC);
             <?php } ?>
         </tbody>
     </table>
-
 </body>
 
 </html>
