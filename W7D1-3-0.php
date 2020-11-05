@@ -38,10 +38,13 @@ $sql = "SELECT * FROM Users WHERE email = $userID";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>W7D1-3-0. Post</title>
+    <title>W7D1-3-0. GET</title>
 </head>
 
 <body>
+<h2>GET method</h2>
+<p>In browsers adressbar after file adress paste:<br> 
+ ?user_id=10 <br> or: <br> ?user_id=20&lang=eng</p>
     <form method="POST">
         <input name="email">
         <input name="password">

@@ -17,7 +17,8 @@ var_dump($_POST);
 </head>
 
 <body>
-    <h2>Clear POST method</h2>
+    <h2>POST method</h2>
+    <p>Fill the fields and press "Save" button.</p>
     <form method="POST">
         <input name="input_one">
         <input name="input_two">
