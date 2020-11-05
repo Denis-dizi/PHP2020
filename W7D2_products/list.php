@@ -49,15 +49,15 @@ $products = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
                     <td>
                         <!-- (0:45:) -->
                         <!-- <a href="<?= urlencode("/PHP2020 - RCS/products/modify.php?id=") ?><?= $product["id"] ?>">Edit</a> -->
-                        <a href="/PHP2020 - RCS/products/modify.php?id=<?= $product["id"] ?>">Edit</a>
-                        <a href="/PHP2020 - RCS/products/delete.php?id=<?= $product["id"] ?>">Delete</a>
+                        <a href="/PHP2020_RCS/W7D2_products/modify.php?id=<?= $product["id"] ?>">Edit</a>
+                        <a href="/PHP2020_RCS/W7D2_products/delete.php?id=<?= $product["id"] ?>">Delete</a>
                     </td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
 
-    <a href="/PHP2020 - RCS/products/modify.php">Add product</a>
+    <a href="/PHP2020_RCS/W7D2_products/modify.php">Add product</a>
 
 </body>
 
@@ -67,7 +67,7 @@ $products = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
     // error responce
     // (2:37:)
     $.ajax({
-        url: "/PHP2020 - RCS/products/api.php?table=products"
+        url: "/PHP2020_RCS/W7D2_products/api.php?table=products"
     }).done(function(response) {
         response = JSON.parse(response);
         if (response.error) {
