@@ -1,12 +1,15 @@
-<!-- W7D2 -->
 <?php
+// W7D2
+// (0:27:)
 
+// (0:30:)
 $dbhost = "localhost:3306";
 $dbuser = "root";
 $dbpass = ""; //root
 $dbname = "shop-i";
 $dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
+// (0:35:)
 $sql = "SELECT * FROM products";
 $products = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
 // var_dumb($products);
@@ -25,6 +28,7 @@ $products = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
 
 <body>
     <table>
+        <!-- (0:37:) -->
         <thead>
             <tr>
                 <td colspan="3">Products</td>
@@ -37,11 +41,13 @@ $products = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
         </thead>
 
         <tbody>
+            <!-- (0:41:) -->
             <?php foreach ($products as $product) { ?>
                 <tr>
                     <td><?= $product["name"] ?></td>
                     <td><?= $product["price"] ?></td>
                     <td>
+                        <!-- (0:45:) -->
                         <!-- <a href="<?= urlencode("/PHP2020 - RCS/products/modify.php?id=") ?><?= $product["id"] ?>">Edit</a> -->
                         <a href="/PHP2020 - RCS/products/modify.php?id=<?= $product["id"] ?>">Edit</a>
                         <a href="/PHP2020 - RCS/products/delete.php?id=<?= $product["id"] ?>">Delete</a>
