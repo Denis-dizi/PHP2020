@@ -11,14 +11,16 @@ if ($_GET["table"]) {
     $table = $_GET["table"];
     $sql = "SELECT * FROM $table";
 
-    $response = [];
     // $response = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
+    // (2:26:) type in adressbar: ?table=products
+    // (2:35:)
+    $response = [];
     $sqlResponse = $dbConnection->query($sql);
 
-    //error report
-    // (2:37:)
+    //Test: if we have a table. If no, will get an error message.
+    // (2:37:) 
     if ($sqlResponse) {
-        $response = $response->fetch_all(MYSQLI_ASSOC); 
+        $response = $sqlResponse->fetch_all(MYSQLI_ASSOC);
     } else {
         $response = ["error" => "missing table " . $_GET["table"]];
     }
@@ -26,4 +28,3 @@ if ($_GET["table"]) {
     echo json_encode($response);
     //type: http://localhost/PHP2020%20-%20RCS/products/api.php?table=products
 }
-?>
