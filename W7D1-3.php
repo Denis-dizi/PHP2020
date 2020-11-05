@@ -23,6 +23,24 @@ if (isset($_POST["email"]) && isset($_POST["password"])) {
     // var_dump($dbConnection);
 }
 
+// (2:40:)
+// User not existing check
+if (isset($_GET["email"])) {
+
+    $email = $_GET["email"];
+    $sql = "SELECT * FROM users WHERE email = '$email";
+
+    echo $sql;
+
+    if (!$dbConnection->query($sql)) {
+        var_dump('User not existing');
+    } else {
+        $user = $dbConnection->query($sql)->fetch_assoc();
+        var_dump($user);
+    }
+}
+
+
 // (2:42:)
 $email = '';
 $password = '';
@@ -42,6 +60,7 @@ if (isset($_GET["email"])) {
     // var_dump($user);
 }
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 // (1:42:) connect to database
 // var_dump($dbConnection);
 
