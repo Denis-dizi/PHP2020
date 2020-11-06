@@ -19,7 +19,7 @@ $product = [];
 if (isset($_GET["id"])) {
     $sql = "SELECT name, price, id FROM products WHERE id=" . $_GET["id"];
     // $product = $dbConnection->query($sql)->fetch_assoc();
-    $product =DB::run($sql)->fetch_assoc();
+    $product = DB::run($sql)->fetch_assoc();
 }
 
 // (1:37/47:) is field empty, do we have a data into forms?
@@ -33,8 +33,8 @@ if (!empty($_POST["id"])) {
     DB::run($updateSql);
     // $dbConnection->query($updateSql);
     Header("Location: /PHP2020_RCS/W7D3/list.php");
-    
-//(2:03:)(2:15:) new insert will be made
+
+    //(2:03:)(2:15:) new insert will be made
 } else if (isset($_POST["id"])) {
     $name = $_POST["name"];
     $price = $_POST["price"];
@@ -54,7 +54,7 @@ if (!empty($_POST["id"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modify</title>
+    <title>Modify2</title>
 </head>
 <!-- (1:20/27:)(2:01:(about: ?? '')) -->
 
@@ -67,5 +67,26 @@ if (!empty($_POST["id"])) {
         <button>Save</button>
     </form>
 </body>
+
+<script>
+    let isTimeoutActive = null;
+
+    document.getElementsByName("name")[0].addEventListener('keyup', function() {
+        console.log("key presed");
+        if (isTimeoutActive) {
+            clearTimeout(isIimeoutActive);
+        }
+
+        isIimeoutActive = setTimeout(function() {
+            const name = document.getElementsByName("name")[0].value;
+            fetch("/PHP2020_RCS/W7D3/api.php")
+                .then(response = response.json())
+                .then(function(data) {
+                    console.log(data)
+                })
+
+        }, 500)
+    });
+</script>
 
 </html>

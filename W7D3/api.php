@@ -29,3 +29,14 @@ if ($_GET["table"]) {
     //(2:26:)type: .../api.php?table=products - to get data array
     //type: .../api.php?table=product1 - to get error message
 }
+
+// W3D7
+// (2::)
+if ($_GET['product_name']) {
+    $productName = $_GET['product_name'];
+    $sql = "SELECT * FROM products WHERE name = '$productName'";
+
+    $response = DB::run($sql)->fetch_assoc();
+
+    echo json_encode(["products"=> $response]);
+}
