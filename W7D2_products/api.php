@@ -12,7 +12,7 @@ if ($_GET["table"]) {
     $sql = "SELECT * FROM $table";
 
     // $response = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
-    // (2:26:) type in adressbar: ?table=products
+    // (2:26:) type in adressbar: ?table=products - to get data array
     // (2:35:)
     $response = [];
     $sqlResponse = $dbConnection->query($sql);
@@ -26,6 +26,6 @@ if ($_GET["table"]) {
     }
 
     echo json_encode($response);
-    //type: .../api.php?table=products - to get data array
+    //(2:26:)type: .../api.php?table=products - to get data array
     //type: .../api.php?table=product1 - to get error message
 }
