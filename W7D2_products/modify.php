@@ -3,15 +3,15 @@
 // (1:17:)
 $dbhost = "localhost:3306";
 $dbuser = "root";
-$dbpass = ""; //root
+$dbpass = "";
 $dbname = "shop-i";
 $dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-// (1:23:)
-// $id = $_GET["id"];
 
-// $sql = "DELETE FROM products WHERE id=$id";
+// (1:23:)
 // $sql = "SELECT * FROM products WHERE id=".$_GET["id"];
 // $product = $dbConnection->query($sql)->fetch_assoc();
+//(1:28:) type: .../modify.php?id=2 - to get data in forms
+
 // (1:58:)(2:00:)
 $product = [];
 if (isset($_GET["id"])) {
@@ -19,8 +19,8 @@ if (isset($_GET["id"])) {
     $product = $dbConnection->query($sql)->fetch_assoc();
 }
 
-
-// (1:37/47:) is field empty?
+// (1:37/47:) is field empty, do we have a data into forms?
+//if no empty, refresh page (update)
 if (!empty($_POST["id"])) {
     $name = $_POST["name"];
     $price = $_POST["price"];
@@ -28,9 +28,10 @@ if (!empty($_POST["id"])) {
     $updateSql = "UPDATE products SET name='$name', price=$price WHERE id=$id";
 
     $dbConnection->query($updateSql);
-
     Header("Location: /PHP2020_RCS/W7D2_products/list.php");
-} else if (isset($_POST["id"])) {   //(2:03:)(2:15:) new insert will be made
+    
+//(2:03:)(2:15:) new insert will be made
+} else if (isset($_POST["id"])) {
     $name = $_POST["name"];
     $price = $_POST["price"];
     $addSql = "INSERT INTO products (name, price) VALUES ('$name', $price)";
@@ -38,9 +39,6 @@ if (!empty($_POST["id"])) {
     $dbConnection->query($addSql);
     Header("Location: /PHP2020_RCS/W7D2_products/list.php");
 }
-
-
-
 
 ?>
 
@@ -53,7 +51,8 @@ if (!empty($_POST["id"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modify</title>
 </head>
-<!-- (0:20:)(2:01:) -->
+<!-- (1:20/27:)(2:01:(about: ?? '')) -->
+
 <body>
     <form method="POST">
         <input name="name" value="<?= $product["name"] ?? '' ?>">
