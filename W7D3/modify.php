@@ -1,11 +1,13 @@
 <?php
+// W7D3
 // W7D2
 // (1:17:)
-$dbhost = "localhost:3306";
-$dbuser = "root";
-$dbpass = "";
-$dbname = "shop-i";
-$dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+require_once __DIR__ . "/DB_wrapper.php";
+// $dbhost = "localhost:3306";
+// $dbuser = "root";
+// $dbpass = "";
+// $dbname = "shop-i";
+// $dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 // (1:23:)
 // $sql = "SELECT * FROM products WHERE id=".$_GET["id"];
@@ -16,7 +18,8 @@ $dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 $product = [];
 if (isset($_GET["id"])) {
     $sql = "SELECT name, price, id FROM products WHERE id=" . $_GET["id"];
-    $product = $dbConnection->query($sql)->fetch_assoc();
+    // $product = $dbConnection->query($sql)->fetch_assoc();
+    $product =DB::run($sql)->fetch_assoc();
 }
 
 // (1:37/47:) is field empty, do we have a data into forms?
@@ -27,8 +30,9 @@ if (!empty($_POST["id"])) {
     $id = $_POST["id"];
     $updateSql = "UPDATE products SET name='$name', price=$price WHERE id=$id";
 
-    $dbConnection->query($updateSql);
-    Header("Location: /PHP2020_RCS/W7D2_products/list.php");
+    DB::run($updateSql);
+    // $dbConnection->query($updateSql);
+    Header("Location: /PHP2020_RCS/W7D3/list.php");
     
 //(2:03:)(2:15:) new insert will be made
 } else if (isset($_POST["id"])) {
@@ -36,8 +40,9 @@ if (!empty($_POST["id"])) {
     $price = $_POST["price"];
     $addSql = "INSERT INTO products (name, price) VALUES ('$name', $price)";
 
-    $dbConnection->query($addSql);
-    Header("Location: /PHP2020_RCS/W7D2_products/list.php");
+    // $dbConnection->query($addSql);
+    DB::run($addSql);
+    Header("Location: /PHP2020_RCS/W7D3/list.php");
 }
 
 ?>
