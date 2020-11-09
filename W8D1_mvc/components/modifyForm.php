@@ -1,6 +1,7 @@
 <?php
 
-class modifyForm{
+class modifyForm
+{
     private $name;
     private $price;
     private $id;
@@ -14,13 +15,15 @@ class modifyForm{
 
     public function html() {
         ?>
-        <form>
-            
-        </form>
+        <form action="/PHP2020_RCS/W8D1_mvc/?page=modify" method="POST">
+            <input name="name" value="<?= $this->name ?>">
+            <input name="price" value="<?= $this->price ?>">
+            <input name="hidden" name="id" value="<?= $this->id ?>">
 
+            <button type="submit">Save</button>
+        </form>
         <?php
     }
 }
-
 
 ?>

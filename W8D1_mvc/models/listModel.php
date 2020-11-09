@@ -1,9 +1,5 @@
 <?php
-
 require_once __DIR__ . "/../W7D3/DB_wrapper.php";
-
-
-
     class listModel {
 
         public function getAll() {
