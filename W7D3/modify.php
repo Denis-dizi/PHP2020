@@ -16,6 +16,8 @@ if (isset($_GET["id"])) {
     //(0:16:)
     // $product = $dbConnection->query($sql)->fetch_assoc();
     $product = DB::run($sql)->fetch_assoc();
+    // (0:34:)
+    // $a = "a";
 }
 
 //is field empty, do we have a data into forms?
@@ -75,28 +77,46 @@ if (!empty($_POST["id"])) {
     //     console.log("key presed");
     // });
 
-    // (1:16/38:)
+
+    // (1:20:)
     let isTimeoutActive = null;
 
     document.getElementsByName("name")[0].addEventListener('keyup', function() {
-        // console.log("key presed");
         if (isTimeoutActive) {
             clearTimeout(isIimeoutActive);
         }
 
         isIimeoutActive = setTimeout(function() {
-            const name = document.getElementsByName("name")[0].value;
-            fetch("/PHP2020_RCS/W7D3/api.php?product_name=" + name, )
-                .then(response = response.json())
-                .then(function(data) {
-                    console.log(data)
 
-                    if (data.products) {
-                        alert("product exists")
-                    }
+            fetch("/PHP2020_RCS/W7D3/api.php")
+                .then(function(response) {
+                    console.log(response)
                 })
         }, 500)
     });
+
+
+    // (1:38:)
+    // let isTimeoutActive = null;
+
+    // document.getElementsByName("name")[0].addEventListener('keyup', function() {
+    //     if (isTimeoutActive) {
+    //         clearTimeout(isIimeoutActive);
+    //     }
+
+    //     isIimeoutActive = setTimeout(function() {
+    //         const name = document.getElementsByName("name")[0].value;
+    //         fetch("/PHP2020_RCS/W7D3/api.php?product_name=" + name, )
+    //             .then(response = response.json())
+    //             .then(function(data) {
+    //                 console.log(data)
+
+    //                 if (data.products) {
+    //                     alert("product exists")
+    //                 }
+    //             })
+    //     }, 500)
+    // });
 </script>
 
 </html>

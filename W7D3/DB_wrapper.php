@@ -35,7 +35,7 @@ class DB
         $response = static::$connection->query($sql);
 
         if ($response === TRUE) {
-            $response - static::$connection->insert_id;
+            $response = static::$connection->insert_id;
         }
 
 
