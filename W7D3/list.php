@@ -1,22 +1,16 @@
 <?php
-// W7D3
-// W7D2
-// (0:27:)
-
-// (0:30:)
-
+// W7D3 3-rd video
+// (0:02:)
 require_once __DIR__ . "/DB_wrapper.php";
-// $dbhost = "localhost:3306";
-// $dbuser = "root";
-// $dbpass = ""; //root
-// $dbname = "shop-i";
-// $dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+// var_dump($_SERVER);
 
-// (0:35:)
 $sql = "SELECT * FROM products";
+// (0:06:)
+// $products = $dbConnection->query($sql)->fetch_all(MYSQLI_ASSOC);
 $products = DB::run($sql)->fetch_all(MYSQLI_ASSOC);
+// (0:34:)
 $a = "a";
-// var_dumb($products);
+// var_dump($products);
 ?>
 
 
@@ -32,7 +26,6 @@ $a = "a";
 
 <body>
     <table>
-        <!-- (0:37:) -->
         <thead>
             <tr>
                 <td colspan="3">Products</td>
@@ -45,13 +38,11 @@ $a = "a";
         </thead>
 
         <tbody>
-            <!-- (0:41:) -->
             <?php foreach ($products as $product) { ?>
                 <tr>
                     <td><?= $product["name"] ?></td>
                     <td><?= $product["price"] ?></td>
                     <td>
-                        <!-- (0:45:) -->
                         <a href="/PHP2020_RCS/W7D3/modify.php?id=<?= $product["id"] ?>">Edit</a>
                         <a href="/PHP2020_RCS/W7D3/delete.php?id=<?= $product["id"] ?>">Delete</a>
                     </td>
@@ -59,7 +50,6 @@ $a = "a";
             <?php } ?>
         </tbody>
     </table>
-    <!-- (1:55:) -->
     <a href="/PHP2020_RCS/W7D3/modify.php">Add product</a>
 
 </body>
@@ -67,10 +57,8 @@ $a = "a";
 </html>
 
 <script>
-    // (2:27:) ajax request:
     $.ajax({
         url: "/PHP2020_RCS/W7D3/api.php?table=products"
-        // (2:38:) error message
     }).done(function(response) {
         response = JSON.parse(response);
         if (response.error) {
