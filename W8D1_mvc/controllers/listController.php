@@ -1,5 +1,6 @@
 <?php
-    // echo "print controller";
+//  (0:21:)
+    echo "List controller";
     require_once __DIR__ ."/../views/listView.php";
     require_once __DIR__ ."/../models/listModel.php";
     require_once __DIR__ ."/../components/modifyForm.php";
