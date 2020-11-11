@@ -1,16 +1,17 @@
 <?php
 // W7D2
-$dbhost = "localhost:3306";
-$dbuser = "root";
-$dbpass = ""; 
-$dbname = "shop-i";
-$dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+// $dbhost = "localhost:3306";
+// $dbuser = "root";
+// $dbpass = ""; 
+// $dbname = "shop-i";
+// $dbConnection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
 // W7D3 3-rd video
 // (1:25:)
 require_once __DIR__ . "/DB_wrapper.php";
 
-if ($_GET["table"]) {
+// if ($_GET["table"]) {
+if (isset($_GET["table"])) {
     $table = $_GET["table"];
     $sql = "SELECT * FROM $table";
 
