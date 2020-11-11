@@ -56,13 +56,13 @@ $products = DB::run($sql)->fetch_all(MYSQLI_ASSOC);
 
 </html>
 
-<script>
-    // $.ajax({
-    //     url: "/PHP2020_RCS/W7D3/api.php?table=products"
-    // }).done(function(response) {
-    //     response = JSON.parse(response);
-    //     if (response.error) {
-    //         alert(response.error)
-    //     }
-    // });
-</script>
+<!-- <script>
+    $.ajax({
+        url: "/PHP2020_RCS/W7D3/api.php?table=products"
+    }).done(function(response) {
+        response = JSON.parse(response);
+        if (response.error) {
+            alert(response.error)
+        }
+    });
+</script> -->

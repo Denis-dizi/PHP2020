@@ -66,57 +66,58 @@ if (!empty($_POST["id"])) {
 </body>
 
 <script>
-    // // (1:02:) Console shows response
+    // (1:02:) Console shows response
     // fetch("/PHP2020_RCS/W7D3/api.php")
     //     .then(function(response) {
     //         console.log(response)
     //     })
 
-    // // (1:12:) Console shows "key presed"
+
+    // (1:12:) Console shows "key presed"
     // document.getElementsByName("name")[0].addEventListener('keyup', function() {
     //     console.log("key presed");
     // });
 
 
     // (1:20:)
-    let isTimeoutActive = null;
-
-    document.getElementsByName("name")[0].addEventListener('keyup', function() {
-        if (isTimeoutActive) {
-            clearTimeout(isIimeoutActive);
-        }
-
-        isIimeoutActive = setTimeout(function() {
-
-            fetch("/PHP2020_RCS/W7D3/api.php")
-                .then(function(response) {
-                    console.log(response)
-                })
-        }, 500)
-    });
-
-
-    // (1:38:)
     // let isTimeoutActive = null;
 
     // document.getElementsByName("name")[0].addEventListener('keyup', function() {
     //     if (isTimeoutActive) {
-    //         clearTimeout(isIimeoutActive);
+    //         clearTimeout(isTimeoutActive);
     //     }
 
-    //     isIimeoutActive = setTimeout(function() {
-    //         const name = document.getElementsByName("name")[0].value;
-    //         fetch("/PHP2020_RCS/W7D3/api.php?product_name=" + name, )
-    //             .then(response = response.json())
-    //             .then(function(data) {
-    //                 console.log(data)
+    //     isTimeoutActive = setTimeout(function() {
 
-    //                 if (data.products) {
-    //                     alert("product exists")
-    //                 }
+    //         fetch("/PHP2020_RCS/W7D3/api.php")
+    //             .then(function(response) {
+    //                 console.log(response)
     //             })
     //     }, 500)
     // });
+
+
+    // (1:22/38:)
+    let isTimeoutActive = null;
+
+    document.getElementsByName("name")[0].addEventListener('keyup', function() {
+        if (isTimeoutActive) {
+            clearTimeout(isTimeoutActive);
+        }
+
+        isTimeoutActive = setTimeout(function() {
+            const name = document.getElementsByName("name")[0].value;
+            fetch("/PHP2020_RCS/W7D3/api.php?product_name=" + name, )
+                .then(response => response.json()) //(1:38:49) - correction at
+                .then(function(data) {
+                    console.log(data)
+
+                    if (data.products) {
+                        alert("product exists");
+                    }
+                })
+        }, 500)
+    });
 </script>
 
 </html>
