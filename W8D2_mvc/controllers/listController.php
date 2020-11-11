@@ -5,6 +5,9 @@
     require_once __DIR__ ."/../models/listModel.php";
     require_once __DIR__ ."/../components/modifyForm.php";
 
+   if (isset($_POST["logOut"]))
+   
+   
     $model = new listModel();
     $products = $model->getAll();
 

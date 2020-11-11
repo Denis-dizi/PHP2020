@@ -36,6 +36,13 @@ class listView
                 <?php } ?>
             </tbody>
         </table>
+
+        <a href="/mvc/?page=list.......">Add product</a>
+
+        <form method="POST">
+            <input type="hidden" name = "logOut">
+            <button type="submit">Log out</button>
+        </form>
         
         <!-- <table>
             <thead>
