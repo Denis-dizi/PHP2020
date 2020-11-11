@@ -10,15 +10,18 @@
 // (0:14:)
 require_once __DIR__ . "/DB_wrapper.php";
 
-$product = [];
+// $product = [];
 if (isset($_GET["id"])) {
     $sql = "SELECT name, price, id FROM products WHERE id=" . $_GET["id"];
     //(0:16:)
     // $product = $dbConnection->query($sql)->fetch_assoc();
     $product = DB::run($sql)->fetch_assoc();
+    // $product = DB::run($sql)->fetch_all(MYSQLI_ASSOC)[0];
     // (0:34:)
     // $a = "a";
 }
+
+// echo $product = ["name"];
 
 //is field empty, do we have a data into forms?
 //if no empty, refresh page (update)
