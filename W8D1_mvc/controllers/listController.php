@@ -9,12 +9,13 @@ require_once __DIR__ . "/../models/listModel.php"; //(0:47:)
 $model = new listModel();
 $products = $model->getAll();
 
+// (0:55:)
+$view = new listView($products);
 // (0:33:)
-// $view = new listView($products);
-$view = new listView();
+// $view = new listView();
 $view->html();
 
-var_dump($products); //(0:50:)
+// var_dump($products); //(0:50:)
 
 // if (isset($_GET["action"]) && $_GET["action"] === "modify") {
 //     if (isset($_GET["product_id"])) {

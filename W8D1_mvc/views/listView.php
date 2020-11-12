@@ -2,13 +2,13 @@
 //(0:29:)
 echo "listView.php - test print view<br>";
 class listView
-{
-    // private $productList;
+{   // (0:53:)
+    private $productList;
 
-    // public function __construct($data = [])
-    // {
-    //     $this->productList = $data;
-    // }
+    public function __construct($data = [])
+    {
+        $this->productList = $data;
+    }
 
     public function html()
     { // (0:30:)
@@ -29,22 +29,22 @@ class listView
             </thead>
             <tbody>
                 <!-- dinamic part -->
-                <tr>
-                    <td>Name</td>
-                    <td>Price</td>
-                    <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </td>
-                </tr>
+                <!-- (0:58:) -->
+                <?php foreach ($this->productList as $product) { ?> 
+                    <tr>
+                        <td>Name</td>
+                        <td>Price</td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
-
 <?php
     }
 }
-// <?php foreach ($this->productList as $product) { >
-// <!-- <?php } > -->
 // <td><?= $product["name"] ></td>
 // <td><?= $product["price"] ></td>
 
