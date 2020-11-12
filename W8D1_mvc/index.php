@@ -1,6 +1,7 @@
 <?php
 //(0:15:)
-echo ("test MVC");
+echo "index.php - test MVC";
+?> <br><?php
 
 // $_SERVER
 // $_GET

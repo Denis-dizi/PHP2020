@@ -1,19 +1,21 @@
 <?php
-// echo "print view";
-class listView
-{
-    private $productList;
+//(0:29:)
+echo "listView.php - test print view";
+?> <br><?php
+        class listView
+        {
+            private $productList;
 
-    public function __construct($data = [])
-    {
-        $this->productList = $data;
-    }
+            // public function __construct($data = [])
+            // {
+            //     $this->productList = $data;
+            // }
 
-    public function html()
-    {
-        // echo "List View";
-    ?>
-        <table>
+            public function html()
+            { // (0:30:)
+                echo "listView.php - List View - test from function";
+        ?>
+        <!-- <table>
             <thead>
                 <tr>
                     <td colspan="3">Products</td>
@@ -26,8 +28,8 @@ class listView
             <tbody>
                 <?php foreach ($this->productList as $product) { ?>
                     <tr>
-                        <td><?= $product["name"]?></td>
-                        <td><?= $product["price"]?></td>
+                        <td><?= $product["name"] ?></td>
+                        <td><?= $product["price"] ?></td>
                         <td>
                             <button>Edit</button>
                             <button>Delete</button>
@@ -35,8 +37,8 @@ class listView
                     </tr>
                 <?php } ?>
             </tbody>
-        </table>
-        
+        </table> -->
+
         <!-- <table>
             <thead>
                 <tr>
@@ -65,7 +67,7 @@ class listView
             </tbody>
         </table> -->
 
-    <?php
-    }
-}
+<?php
+            }
+        }
 ?>
