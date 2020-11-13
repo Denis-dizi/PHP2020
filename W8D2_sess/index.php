@@ -1,6 +1,6 @@
 <?php
 //(0:15:)
-echo "index.php - test MVC<br>";
+echo "index.php - test Session<br>";
 
 // $_SERVER
 // $_GET
