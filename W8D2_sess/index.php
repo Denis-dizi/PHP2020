@@ -20,8 +20,10 @@ if (isset($_GET["page"])) {
     session_start();
 
     if (file_exists($file)) {
-        if ($_GET["page"] === 'login' 
-        || $_GET["page"] === 'register') {
+        if (
+            $_GET["page"] === 'login'
+            || $_GET["page"] === 'register'
+        ) {
             require_once $file;
         } else if (isset($_SESSION["id"])) {
             require_once $file;
@@ -36,20 +38,20 @@ if (isset($_GET["page"])) {
 
 
 // ===old uncorrected:
-//(1:38:)
+//(1:38:)(2:03:)
 // if (isset($_GET["page"])) {
-//     require_once __DIR__ . "/controllers/" . $_GET["page"] . "controller.php";
+//     $file = __DIR__ . "/controllers/" . $_GET["page"] . "Controller.php";
 //     session_start();
 
 //     // $_SESSION;
 //     if (
-    //         file_exists($file)
-    //         && ($_GET["page"] === 'login'
-    //             || $_GET["page"] === 'register'
-    //             || isset($_SESSION["id"]))
-    //     ) {
-        //         require_once $file;
-        //     } else {
-//         Header("Location: /mvc/?page=login");
+//         file_exists($file)
+//         && ($_GET["page"] === 'login'
+//             || $_GET["page"] === 'register'
+//             || isset($_SESSION["id"]))
+//     ) {
+//         require_once $file;
+//     } else {
+//         Header("Location: /PHP2020_RCS/W8D2_sess/?page=login");
 //     }
 // }

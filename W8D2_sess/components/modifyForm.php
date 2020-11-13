@@ -16,7 +16,7 @@ class modifyForm
 
     public function html() {
         ?>
-        <form action="/PHP2020_RCS/W8D1_mvc/?page=modify" method="POST"><!-- (2:32) -->
+        <form action="/PHP2020_RCS/W8D2_sess/?page=modify" method="POST"><!-- (2:32) -->
             <input name="name" value="<?= $this->name ?>">
             <input name="price" value="<?= $this->price ?>">
             <input type="hidden" name="id" value="<?= $this->id ?>">

@@ -41,9 +41,9 @@ class listView
                     <td>Price</td> -->
                         <td>
                             <!-- (2:30:) -->
-                            <a href="/PHP2020_RCS/W8D1_mvc/?page=list&action=modify&product_id=<?= $product["id"] ?>">Edit</a>
+                            <a href="/PHP2020_RCS/W8D2_sess/?page=list&action=modify&product_id=<?= $product["id"] ?>">Edit</a>
                             <!-- (1:46:) -->
-                            <a href="/PHP2020_RCS/W8D1_mvc/?page=delete&product_id=<?= $product["id"] ?>">Delete</a>
+                            <a href="/PHP2020_RCS/W8D2_sess/?page=delete&product_id=<?= $product["id"] ?>">Delete</a>
                             <!-- <button>Edit</button>
                         <button>Delete</button> -->
                         </td>
@@ -51,8 +51,14 @@ class listView
                 <?php } ?>
             </tbody>
         </table>
-<!-- (2:40:) -->
-        <a href="/PHP2020_RCS/W8D1_mvc/?page=list&action=modify">Add product</a>
+        <!-- (2:40:) -->
+        <a href="/PHP2020_RCS/W8D2_sess/?page=list&action=modify">Add product</a>
+
+        <!-- (2:16:) W8D2 -->
+        <form method="post">
+            <input type="hidden" name="logOut">
+            <button type="submit">Log Out</button>
+        </form>
 <?php
     }
 }

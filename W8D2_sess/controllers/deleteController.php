@@ -9,6 +9,6 @@ if (isset($_GET["product_id"])) {
     $model->deleteById($_GET["product_id"]);
 }
 
-Header("Location: /PHP2020_RCS/W8D1_mvc/?page=list");
+Header("Location: /PHP2020_RCS/W8D2_sess/?page=list");
 
 ?>

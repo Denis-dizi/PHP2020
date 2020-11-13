@@ -19,5 +19,5 @@ if (!empty($_POST["id"])) {
     );
 }
 
-Header("Location: /PHP2020_RCS/W8D1_mvc/?page=list");
+Header("Location: /PHP2020_RCS/W8D2_sess/?page=list");
 ?>
