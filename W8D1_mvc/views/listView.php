@@ -51,6 +51,8 @@ class listView
                 <?php } ?>
             </tbody>
         </table>
+<!-- (2:40:) -->
+        <a href="/PHP2020_RCS/W8D1_mvc/?page=list&action=modify">Add product</a>
 <?php
     }
 }

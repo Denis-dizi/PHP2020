@@ -34,10 +34,11 @@ class listModel
     // (2:38:)
     public function updateById($id, $name, $price)
     {
-        $sql = "INSERT products SET name = '$name', price=$price WHERE id=$id ";
+        $sql = "UPDATE products SET name = '$name', price=$price WHERE id=$id ";
         DB::run($sql);
     }
 
+    // (2:41:)
     public function insertNew($name, $price)
     {
         $sql = "INSERT INTO products (name, price) VALUES ('$name', $price)";

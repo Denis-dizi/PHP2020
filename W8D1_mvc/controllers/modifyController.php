@@ -12,11 +12,11 @@ if (empty($_POST["id"])) {
         $_POST["price"],
     );
 } else {
-    //Insert
-    // $model->insertNew(
-    //     $_POST["name"],
-    //     $_POST["price"],
-    // );
+    //Insert (2:41:)
+    $model->insertNew(
+        $_POST["name"],
+        $_POST["price"],
+    );
 }
 
 Header("Location: /PHP2020_RCS/W8D1_mvc/?page=list");
