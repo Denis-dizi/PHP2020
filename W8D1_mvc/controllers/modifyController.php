@@ -1,4 +1,7 @@
 <?php
+//(2:34)
+echo "modifyController.php - test<br>"; // (::)
+
 require_once __DIR__ . "/../models/listModel.php";
 $model = new listModel();
 if (empty($_POST["id"])) {
@@ -10,11 +13,11 @@ if (empty($_POST["id"])) {
     );
 } else {
     //Insert
-    $model->insertNew(
-        $_POST["name"],
-        $_POST["price"],
-    );
+    // $model->insertNew(
+    //     $_POST["name"],
+    //     $_POST["price"],
+    // );
 }
 
-Header("Location: /W8D1_mvc/?page=list");
+Header("Location: /PHP2020_RCS/W8D1_mvc/?page=list");
 ?>

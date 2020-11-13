@@ -1,13 +1,15 @@
 <?php
 //(0:29:)
-echo "listView.php - test print view<br>";
+echo "listView.php - test print view<br>"; // (1:19:)
+require_once __DIR__ . "/../components/modifyForm.php"; //(2:17:)
 class listView
 {   // (0:53:)
     private $productList;
-
+    // (1:13:)
     public function __construct($data = [])
     {
         $this->productList = $data;
+        // var_dump($this->productList); // (1:13:)
     }
 
     public function html()
@@ -30,13 +32,20 @@ class listView
             <tbody>
                 <!-- dinamic part -->
                 <!-- (0:58:) -->
-                <?php foreach ($this->productList as $product) { ?> 
+                <?php foreach ($this->productList as $product) { ?>
                     <tr>
-                        <td>Name</td>
-                        <td>Price</td>
+                        <!-- (1:01:) -->
+                        <td><?= $product["name"] ?></td>
+                        <td><?= $product["price"] ?></td>
+                        <!-- <td>Name</td>
+                    <td>Price</td> -->
                         <td>
-                            <button>Edit</button>
-                            <button>Delete</button>
+                            <!-- (2:30:) -->
+                            <a href="/PHP2020_RCS/W8D1_mvc/?page=list&action=modify&product_id=<?= $product["id"] ?>">Edit</a>
+                            <!-- (1:46:) -->
+                            <a href="/PHP2020_RCS/W8D1_mvc/?page=delete&product_id=<?= $product["id"] ?>">Delete</a>
+                            <!-- <button>Edit</button>
+                        <button>Delete</button> -->
                         </td>
                     </tr>
                 <?php } ?>
@@ -45,7 +54,4 @@ class listView
 <?php
     }
 }
-// <td><?= $product["name"] ></td>
-// <td><?= $product["price"] ></td>
-
 ?>
