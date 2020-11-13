@@ -28,9 +28,10 @@ if (!empty($_POST["email"])) {
         //    (1:23:)
             if ($isValidPassword) {
                 echo "Congrats!! You're inn.";
-                // session_start();
-                // $_SESSION["id"] = $response["email"];
-                // Header("Location: /mvc/?page=list")
+                // (1:50:)
+                session_start();
+                $_SESSION["id"] = $response["email"];
+                Header("Location: /PHP2020_RCS/W8D2_sess/?page=list");
             } else {
                 echo "Invalid password";
             }
