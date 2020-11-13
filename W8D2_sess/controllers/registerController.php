@@ -13,7 +13,14 @@ require_once __DIR__ . "/../DB_wrapper_ses.php"; // (:22:)
 if (!empty($_POST["email"]) && !empty($_POST["password"])) {
         var_dump("Can be saved!"); // (0:20:)
         $email = $_POST ["email"]; //(:25:)
-        $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        // $password = password_hash($_POST["password"], PASSWORD_DEFAULT); //(2:30:) anulled
+
+        //(2:30:) SALT
+        $password = $_POST["password"];
+        $salt = "#/A5ax%*9)&!@%asd";
+        $password = $password . $salt;
+        $password = password_hash($password, PASSWORD_DEFAULT);
+
 
         var_dump($password); //(0:28:)
 
