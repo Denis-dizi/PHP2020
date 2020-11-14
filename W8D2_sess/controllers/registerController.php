@@ -19,7 +19,8 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
         $password = $_POST["password"];
         $salt = "#/A5ax%*9)&!@%asd";
         $password = $password . $salt;
-        $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        // $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+        $password = password_hash($password, PASSWORD_DEFAULT);
 
 
         var_dump($password); //(0:28:)

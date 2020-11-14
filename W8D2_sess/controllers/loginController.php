@@ -27,7 +27,8 @@ if (!empty($_POST["email"])) {
             $password = $password . $salt;
 
             $isValidPassword = password_verify(
-                $_POST["password"],
+                // $_POST["password"], // (2:36:) Error in lecture????
+                $password,
                 $response["password"]
             );
             //    (1:23:)
