@@ -36,7 +36,7 @@ class loginController
                         echo "Congrats!! You're inn.";
                         session_start();
                         $_SESSION["id"] = $response["email"];
-                        Header("Location: /PHP2020_RCS/W8D2_sess/?page=list");
+                        Header("Location: /PHP2020_RCS/W8D3/?page=list");
                     } else {
                         $error = "Invalid password";
                     }
