@@ -14,7 +14,11 @@ class LoginTest extends TestCase {
     // (1:13:)
     public function testLoginController() {
         // (1:16:)
-        new loginController()
+       $loginController = new loginController();
+
+       $error = $loginController->validateLogin();
+
+       $this->assertEquals('', $error);
     }
 }
 // (0:54:)
