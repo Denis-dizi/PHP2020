@@ -15,10 +15,14 @@ class LoginTest extends TestCase {
     public function testLoginController() {
         // (1:16:)
        $loginController = new loginController();
-
        $error = $loginController->validateLogin();
+       $this->assertEquals('Email not specified', $error);
 
-       $this->assertEquals('', $error);
+        // (1:25:)
+       $_POST["email"] = "test@email.com";
+       $error = $loginController->validateLogin();
+       $this->assertEquals("User with email: ' ". $_POST["email"] . " ' does not exists", $error);
+
     }
 }
 // (0:54:)
