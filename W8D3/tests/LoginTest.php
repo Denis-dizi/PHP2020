@@ -21,7 +21,7 @@ class LoginTest extends TestCase {
         // (1:25:)
        $_POST["email"] = "test@email.com";
        $error = $loginController->validateLogin();
-       $this->assertEquals("User with email: ' ". $_POST["email"] . " ' does not exists", $error);
+       $this->assertEquals("User with email: '". $_POST["email"] . "' does not exists", $error);
 
     }
 }
