@@ -1,8 +1,7 @@
 <?php
-// (1:13:) copied from W8D2
-echo "loginController.php - test W8d3<br>";
-
 namespace PHP2020_RCS\W8D3\controllers;
+// (1:13:) copied from W8D2
+// echo "loginController.php - test W8d3<br>";
 
 require_once __DIR__ . "/../components/userForm.php";
 require_once __DIR__ . "/../DB_wrapper_ses.php";
