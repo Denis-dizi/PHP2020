@@ -2,6 +2,7 @@
 // (0:42:)
 // name of class must be same as file name:
 
+use PHP2020_RCS\W8D3\controllers\loginController;
 use PHPUnit\Framework\TestCase;
 class LoginTest extends TestCase {
     //(0:53:)
@@ -12,7 +13,8 @@ class LoginTest extends TestCase {
 
     // (1:13:)
     public function testLoginController() {
-        
+        // (1:16:)
+        new loginController()
     }
 }
 // (0:54:)
