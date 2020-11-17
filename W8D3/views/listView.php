@@ -15,7 +15,7 @@ class listView
 
     public function html()
     { // (0:30:)
-        echo "listView.php - List View - test from function <br><br>";
+        echo "listView.php - List View - test from function W8D3<br><br>";
 ?>
         <!-- // (0:37:) -->
         <table>

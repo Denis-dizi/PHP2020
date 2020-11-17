@@ -1,6 +1,6 @@
 <?php
 // copied from W8D2
-echo "userForm.php - test<br>";
+echo "userForm.php - test W8D3<br>";
 
 class UserForm {
     private $btnText;
