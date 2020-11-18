@@ -1,4 +1,7 @@
 <?php
+namespace PHP2020_RCS\W8D3\components;
+//(1:50:)
+
 // copied from W8D2
 echo "userForm.php - test W8D3<br>";
 

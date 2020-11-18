@@ -1,5 +1,8 @@
 <?php
 // (1:37:) copied from W8D2
+
+use DB\DB;
+
 echo "registerController.php - test W8d3<br>";
 var_dump("Controller"); // (0:06:)
 require_once __DIR__ . "/../views/registerView.php"; //(0:06:)
