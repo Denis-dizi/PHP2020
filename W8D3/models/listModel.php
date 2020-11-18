@@ -1,7 +1,10 @@
 <?php
 // (1:37:) copied from W8D2
+require_once __DIR__ . "/../../../vendor/autoload.php"; // (2:43:)
+use DB\DB; // (2:43:)
+
 echo "listModel.php - test print model W8D3<br>";
-require_once __DIR__ . "/../../W7D3/DB_wrapper.php";
+// require_once __DIR__ . "/../../W7D3/DB_wrapper.php"; // (2:43:)
 class listModel
 {
     public function getAll()

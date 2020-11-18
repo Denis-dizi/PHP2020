@@ -1,6 +1,8 @@
 <?php
 // (1:37:) copied from W8D2
 
+use W8D3\entity\Product; //(2::)
+
 echo "listView.php - test print view W8D3<br>"; // (1:19:)
 require_once __DIR__ . "/../components/modifyForm.php"; //(2:17:)
 class listView
@@ -27,24 +29,30 @@ class listView
                 <tr>
                     <td>Name</td>
                     <td>Price</td>
+                    <td>Category</td><!-- (2:42:) -->
                     <td></td>
                 </tr>
             </thead>
             <tbody>
                 <!-- dinamic part -->
-                <!-- (0:58:) -->
-                <?php foreach ($this->productList as $product) { ?>
+                <!-- (0:58:)(2:40:) -->
+                <?php foreach ($this->productList as $item) {
+                    $product = new Product();
+                    $product->setName($item["name"]);
+                    $product->setCategoryId($item["category_id"]);
+                    ?>
                     <tr>
-                        <!-- (1:01:) -->
-                        <td><?= $product["name"] ?></td>
-                        <td><?= $product["price"] ?></td>
+                        <!-- (1:01:)(2:42:) -->
+                        <td><?= $product->getName() ?></td>
+                        <td><?= $item["price"] ?></td>
+                        <td><?= $product->getCategoryName() ?></td>
                         <!-- <td>Name</td>
                     <td>Price</td> -->
                         <td>
-                            <!-- (2:30:) -->
-                            <a href="/PHP2020_RCS/W8D3/?page=list&action=modify&product_id=<?= $product["id"] ?>">Edit</a>
-                            <!-- (1:46:) -->
-                            <a href="/PHP2020_RCS/W8D3/?page=delete&product_id=<?= $product["id"] ?>">Delete</a>
+                            <!-- (2:30:)(2::) -->
+                            <a href="/PHP2020_RCS/W8D3/?page=list&action=modify&product_id=<?= $item["id"] ?>">Edit</a>
+                            <!-- (1:46:)(2::) -->
+                            <a href="/PHP2020_RCS/W8D3/?page=delete&product_id=<?= $item["id"] ?>">Delete</a>
                             <!-- <button>Edit</button>
                         <button>Delete</button> -->
                         </td>
