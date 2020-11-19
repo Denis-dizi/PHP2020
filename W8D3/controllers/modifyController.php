@@ -16,6 +16,7 @@ if (!empty($_POST["id"])) {
     $model->insertNew(
         $_POST["name"],
         $_POST["price"],
+        $_POST["category_id"], //(2:56:)
     );
 }
 

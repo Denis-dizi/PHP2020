@@ -35,10 +35,10 @@ class listModel
         $sql = "UPDATE products SET name = '$name', price=$price WHERE id=$id ";
         DB::run($sql);
     }
-
-    public function insertNew($name, $price)
+    // (2:57:)
+    public function insertNew($name, $price, $categoryId)
     {
-        $sql = "INSERT INTO products (name, price) VALUES ('$name', $price)";
+        $sql = "INSERT INTO products (name, price, category_id) VALUES ('$name', $price, $categoryId)";
         DB::run($sql);
     }
 }
