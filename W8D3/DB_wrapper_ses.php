@@ -1,19 +1,22 @@
 <?php
+
 namespace DB; //(1:28:)
 
 use mysqli;
+
 class DB
 {
     private static $connection;
+    private static $dbname = "shop-i";
 
     private static function openConnection()
     {
         $dbhost = "localhost:3306";
         $dbuser = "root";
         $dbpass = "";
-        $dbname = "shop-i";
+        // $dbname = "shop-i";
 
-        static::$connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+        static::$connection = new mysqli($dbhost, $dbuser, $dbpass, static::$dbname);
 
         if (static::$connection->connect_error) {
             die("Connection failed: " . static::$connection->connect_error);
@@ -46,5 +49,18 @@ class DB
         }
 
         static::closeConnection();
+    }
+
+    public static function getArrayResult($sql)
+    {
+        $response = self::run($sql);;
+        $response = $response->num_rows > 0 ? $response->fetch_all(MYSQLI_ASSOC) : [];
+
+        return json_encode($response);
+    }
+
+    public static function setDbName($dbname)
+    {
+        static::$dbname = $dbname;
     }
 }
